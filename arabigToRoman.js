@@ -15,9 +15,12 @@ I = 1
 // Selectors
 
 const converter = document.querySelector('.converter');
-const converterIn = document.querySelector('.converter__input');
-const converterBtn = document.querySelector('.converter__btn');
-const converterOut = document.querySelector('.converter__output');
+const converterIn1 = document.querySelector('.converter__input--1');
+const converterIn2 = document.querySelector('.converter__input--2');
+const converterBtn1 = document.querySelector('.converter__btn--1');
+const converterBtn2 = document.querySelector('.converter__btn--2');
+const converterOut1 = document.querySelector('.converter__output--1');
+const converterOut2 = document.querySelector('.converter__output--2');
 
 // Functions
 
@@ -33,7 +36,9 @@ const numbers = {
 
 const newNumber = [];
 const displayNumber = function () {
-  converterOut.textContent = `Tu número es ${newNumber.join('')}`;
+  // TO FIX
+  // console.dir(converterOut1);
+  converterOut1.textContent = `Tu número es ${newNumber.join('')}`;
   newNumber.length = 0;
 };
 const arabigToRoman = function (nums) {
@@ -60,9 +65,9 @@ const romanToArabig = function () {};
 
 // Events
 
-converterBtn.addEventListener('click', function (e) {
+converterBtn1.addEventListener('click', function (e) {
   e.preventDefault();
   // console.dir(converterIn.value); // input value
-  arabigToRoman(converterIn.value);
+  arabigToRoman(converterIn1.value);
   displayNumber();
 });
