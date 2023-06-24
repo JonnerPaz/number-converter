@@ -1,17 +1,5 @@
 'use strict';
 
-// Arabig to roman numbers
-/*
-Roman numbers
-M = 1000
-D = 500
-C = 100
-L = 50
-x = 10
-v = 5
-I = 1
-*/
-
 // Selectors
 
 const converter = document.querySelector('.converter');
@@ -31,16 +19,23 @@ const numbers = {
     centenas: ['C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM'],
     milesimas: ['M', 'MM', 'MMM'],
   },
-  arabigos: {},
+  arabigos: {
+    unidades: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    decenas: [10, 20, 30, 40, 50, 60, 80, 90],
+    centenas: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+    milesimas: [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000],
+  },
 };
 
 const newNumber = [];
-const displayNumber = function () {
-  // TO FIX
-  // console.dir(converterOut1);
-  converterOut1.textContent = `Tu número es ${newNumber.join('')}`;
+
+const displayNumber = function (event) {
+  event.classList.contains('converter__input--1')
+    ? (converterOut1.textContent = `Tu número es ${newNumber.join('')}`)
+    : (converterOut2.textContent = `Tu número es ${newNumber.join('')}`);
   newNumber.length = 0;
 };
+
 const arabigToRoman = function (nums) {
   const { unidades, decenas, centenas, milesimas } = numbers.romanos;
   const eachNumber = [...nums];
@@ -61,13 +56,30 @@ const arabigToRoman = function (nums) {
     newNumber.push(unidades[nums[3] - 1]);
   }
 };
-const romanToArabig = function () {};
+
+const romanToArabig = function (nums) {
+  const eachNumber = [...nums.toUpperCase()];
+  const { unidades, decenas, centenas, milesimas } = numbers.arabigos;
+  const { unidadesROM, decenasROM, centenasROM, milesimasROM } =
+    numbers.romanos;
+  eachNumber.map((el, i, arr) => {
+    if (arr.length === 1) {
+      console.log(el, i, arr);
+      return unidades[i];
+    }
+  });
+};
 
 // Events
 
 converterBtn1.addEventListener('click', function (e) {
   e.preventDefault();
-  // console.dir(converterIn.value); // input value
   arabigToRoman(converterIn1.value);
-  displayNumber();
+  displayNumber(converterIn1);
+});
+
+converterBtn2.addEventListener('click', function (e) {
+  e.preventDefault();
+  romanToArabig(converterIn2.value);
+  displayNumber(converterIn2);
 });
