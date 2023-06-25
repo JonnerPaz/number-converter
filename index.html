@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="./style.css" rel="stylesheet" />
     <script defer src="./arabigToRoman.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ysabeau+Infant:wght@400;600&display=swap"
+      rel="stylesheet" />
   </head>
 
   <body>
@@ -14,27 +19,33 @@
     </header>
 
     <section class="section">
-      <h2 class="section__title">Convert from arabig to roman</h2>
-      <div class="converter__output converter__output--1"></div>
-      <form class="converter">
-        <input
-          class="converter__input converter__input--1"
-          type="text"
-          placeholder="type your value here..." />
-        <button class="converter__btn converter__btn--1">convert!</button>
-      </form>
-    </section>
+      <div class="form-box">
+        <h2 class="section__title">Convert from arabig to roman</h2>
+        <div class="converter__output converter__output--1"></div>
+        <form class="converter">
+          <div class="converter__input-container">
+            <input
+              class="converter__input converter__input--1"
+              type="text"
+              placeholder="type your value here..." />
+          </div>
+          <button class="converter__btn converter__btn--1">convert!</button>
+        </form>
+      </div>
 
-    <section class="section">
-      <h2 class="section__title">Convert from roman to arabig</h2>
-      <div class="converter__output converter__output--1"></div>
-      <form class="converter">
-        <input
-          type="text"
-          class="converter__input converter__input--2"
-          placeholder="type your value here..." />
-        <button class="converter_btn converter__btn--2">convert!</button>
-      </form>
+      <div class="form-box">
+        <h2 class="section__title">Convert from roman to arabig</h2>
+        <div class="converter__output converter__output--2"></div>
+        <form class="converter">
+          <div class="converter__input-container">
+            <input
+              class="converter__input converter__input--2"
+              type="text"
+              placeholder="type your value..." />
+          </div>
+          <button class="converter__btn converter__btn--2">convert!</button>
+        </form>
+      </div>
     </section>
   </body>
 </html>

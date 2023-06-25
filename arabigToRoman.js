@@ -30,9 +30,15 @@ const numbers = {
 const newNumber = [];
 
 const displayNumber = function (event) {
-  event.classList.contains('converter__input--1')
-    ? (converterOut1.textContent = `Tu número es ${newNumber.join('')}`)
-    : (converterOut2.textContent = `Tu número es ${newNumber.join('')}`);
+  if (event.classList.contains('converter__input--1')) {
+    converterOut1.textContent = `El número ${
+      converterIn1.value
+    } es igual a '${newNumber.join('')}' en romano`;
+    converterIn1.value = '';
+  } else {
+    converterOut2.textContent = `Tu número es ${newNumber.join('')}`;
+    converterIn2.value = '';
+  }
   newNumber.length = 0;
 };
 
